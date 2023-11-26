@@ -1,0 +1,26 @@
+.smussato {
+  min-height: 500px;
+  max-height: 100vh;
+  border: solid;
+  border-width: 5px;
+  border-radius: 8px;
+  border-color: blue;
+} 
+
+.array {
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-text {
+  height: 100px;
+  display: inline-block;
+  padding: 10px;
+  writing-mode: vertical-rl; /* Ruota il testo verticalmente da destra a sinistra */
+  text-align: center; /* Allinea il testo al centro */
+  margin: 5px; /* Aggiungi margine esterno ai bottoni */
+  cursor: pointer; /* Cambia il cursore al passaggio sopra il bottone */
+  white-space: nowrap; /* Impedisce la rottura automatica del testo su più righe */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
