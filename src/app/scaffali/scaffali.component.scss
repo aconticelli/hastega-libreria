@@ -1,15 +1,38 @@
 .smussato {
   min-height: 500px;
-  max-height: 100vh;
   border: solid;
   border-width: 5px;
   border-radius: 8px;
-  border-color: blue;
+  margin: 10px;
 } 
 
 .array {
   display: flex;
   flex-direction: column;
+}
+
+button {
+  &.book {
+    background-color: darkgoldenrod;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  &.add-book {
+    background-color: darkgreen;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  &.submit {
+    height: 50px;
+    width: 100px;
+    margin-bottom: 10px;
+    &.enabled {
+      background-color: darkorange;
+    }
+    &.disabled {
+      background-color: grey;
+    }
+  }
 }
 
 .vertical-text {

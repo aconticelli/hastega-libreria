@@ -1,7 +1,57 @@
-<div class="smussato">
-  <button *ngFor="let nome of nomi">
-    <div class="vertical-text">
-      {{ nome }}
+<ng-container *ngIf="{ books: this.booksService.books$ | async } as resolved">
+  <div class="smussato">
+    <button
+      *ngFor="let book of resolved.books"
+      class="book">
+      <div  
+        class="vertical-text"
+        (click)="showBook(book.isbn)">
+        {{ book.title }}
+      </div>
+    </button>
+    <button
+      class="add-book"
+      (click)="showForm()">
+      <div class="vertical-text">
+        <mat-icon>add</mat-icon>
+      </div>
+    </button>
+  </div>
+  <form 
+    *ngIf="creation && f"
+    [formGroup]="f">
+    <div class="input-list">
+      <input
+        type="text"
+        formControlName="title"
+        placeholder="Titolo">
+      <input
+        type="text"
+        formControlName="author"
+        placeholder="Autore">
+      <input
+        type="text"
+        formControlName="isbn"
+        placeholder="ISBN">
+      <input
+        type="text"
+        formControlName="addedAt"
+        placeholder="Data di aggiunta">
+      <input
+        type="text"
+        formControlName="description"
+        placeholder="Trama">
+      <input
+        type="number"
+        formControlName="readings"
+        placeholder="Numero di letture complete">
+      <button
+        class="submit"
+        [ngClass]="!f.valid ? 'disabled' : 'enabled'"
+        (click)="create()"
+        [disabled]="!f.valid">
+        AGGIUNGI
+      </button>
     </div>
-  </button>
-</div>
+  </form>
+</ng-container>
