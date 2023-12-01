@@ -17,17 +17,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
-db.sequelize.sync({ force: true })
-  .then(() => {
+//const db = require('./app/config/db.config.js');
+const init = async () => {
+  try {
+    //await db.sequelize.sync({ force: true });
     console.log("Synced db.");
-  })
-  .catch((err) => {
+    require("./app/routes/book.routes.js")(app);
+    // set port, listen for requests
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}.`);
+    });
+  } catch (err) {
     console.log("Failed to sync db: " + err.message);
-  });
-
-require("./app/routes/libro.routes.js")(app);
-
-// set port, listen for requests
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}.`);
-});
+  }
+};
+init();

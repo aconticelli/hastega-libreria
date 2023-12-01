@@ -1,8 +1,8 @@
 module.exports = {
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: "123456",
-  DB: "libreria",
+  host: "127.0.0.1",
+  user: "root",
+  password: "root",
+  db: "libreria",
   dialect: "mysql",
   pool: {
     max: 5,

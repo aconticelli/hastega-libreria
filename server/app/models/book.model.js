@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  return sequelize.define("libro", {
+  return sequelize.define("book", {
     title: { type: Sequelize.STRING },
     author: { type: Sequelize.STRING },
     isbn: { type: Sequelize.STRING },
