@@ -17,10 +17,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
+<<<<<<< HEAD
 //const db = require('./app/config/db.config.js');
 const init = async () => {
   try {
     //await db.sequelize.sync({ force: true });
+=======
+
+const init = async () => {
+  try {
+    await db.sequelize.sync({ force: true });
+>>>>>>> frontend
     console.log("Synced db.");
     require("./app/routes/book.routes.js")(app);
     // set port, listen for requests
