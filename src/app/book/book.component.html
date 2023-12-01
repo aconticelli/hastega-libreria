@@ -1,0 +1,58 @@
+<button
+  class="back"
+  [routerLink]="['/scaffali']">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+<ng-container *ngIf="{
+  book: book$ | async,
+  form: form$ | async
+  } as resolved">
+  <form
+  *ngIf="resolved.form"
+  [formGroup]="resolved.form">
+  <div class="input-list">
+      <label>Titolo</label>
+      <input
+        type="text"
+        formControlName="title"
+        placeholder="Titolo">
+      <label>Autore</label>
+      <input
+        type="text"
+        formControlName="author"
+        placeholder="Autore">
+      <label>ISBN</label>
+      <input
+        type="text"
+        formControlName="isbn"
+        placeholder="ISBN">
+      <label>Aggiunto il</label>
+      <input
+        type="text"
+        formControlName="addedAt"
+        placeholder="Data di aggiunta">
+      <label>Trama</label>
+      <input
+        type="text"
+        formControlName="description"
+        placeholder="Trama">
+      <label>Numero di letture complete</label>
+      <input
+        type="number"
+        formControlName="readings"
+        placeholder="Numero di letture complete">
+      <div>
+        <button
+          class="save"
+          (click)="update(resolved.form)">
+          SALVA
+        </button>
+        <button
+          class="delete"
+          (click)="delete(resolved.book?.isbn)">
+          ELIMINA
+        </button>
+      </div>
+    </div>
+  </form>
+</ng-container>
